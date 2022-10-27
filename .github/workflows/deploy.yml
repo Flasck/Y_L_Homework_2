@@ -13,9 +13,8 @@ jobs:
         node-varsion: [ 19.x ]
     steps:
       - uses: actions/checkout@v3
-      - run: set -eu
-      - run: mkdir "$HOME/.ssh"
-      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
-      - run: chmod 600 "$HOME/.ssh/key"
+        with:
+          folder: site
+          ssh-key: ${{ secrets.DEPLOY_KEY }}
       - run: npm install
-      - run: ssh-key=$HOME/.ssh/key && npm run deploy
+      - run: npm run deploy
