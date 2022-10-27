@@ -19,4 +19,4 @@ jobs:
       - run: chmod 600 "$HOME/.ssh/key"
       - run: npm install
       - run: npm run build
-      - run: rsynk -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" && npm run deploy
+      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" && npm run deploy
