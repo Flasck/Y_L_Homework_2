@@ -18,5 +18,4 @@ jobs:
       - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
       - run: npm install
-      - run: npm run build
-      - run: rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" && npm run deploy
+      - run: ssh-key=$HOME/.ssh/key && npm run deploy
