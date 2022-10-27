@@ -26,9 +26,10 @@ jobs:
       matrix:
         node-varsion: [ 19.x ]
     steps:
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: dist
-        ssh-key: ${{ secrets.DEPLOY }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
+          ssh-key: ${{ secrets.DEPLOY }}
 
   
