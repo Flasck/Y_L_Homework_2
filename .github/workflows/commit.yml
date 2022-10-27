@@ -26,6 +26,8 @@ jobs:
         node-varsion: [ 19.x ]
     steps:
       - name: Deploy
+        - run: npm install
+        - run: npm run build
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
