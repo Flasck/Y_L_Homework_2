@@ -13,8 +13,11 @@ jobs:
         node-varsion: [ 19.x ]
     steps:
       - uses: actions/checkout@v3
+      - run: set -eu
+      - run: mkdir "$HOME/.ssh"
+      - run: echo "${{ secrets.key }}" > "$HOME/.ssh/key"
+      - run: chmod 600 "$HOME/.ssh/key"
       - run: npm install
       - run: npm run build
-      - run: git config --global user.email po_6706@mail.ru
-      - run: git config --global user.name Flasck
-      - run: npm run deploy
+      - run: -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no"
+      - run: npm run  deploy
