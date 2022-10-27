@@ -25,9 +25,12 @@ jobs:
       matrix:
         node-varsion: [ 19.x ]
     steps:
-      - name: Deploy
+      - name: Build
+        - uses: actions/checkout@v3
         - run: npm install
         - run: npm run build
+
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: dist
