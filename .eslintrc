@@ -1,6 +1,6 @@
 {
   "extends": ["airbnb"],
-  "ignorePatterns": [ "/node_modules/", "webpack.config.js", "statoscope.config.js" ],
+  "ignorePatterns": [ "/node_modules/", "webpack.config.js", "statoscope.config.js", "TodoList.js", "TodoItem.js"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",

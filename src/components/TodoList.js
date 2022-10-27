@@ -22,7 +22,7 @@ export function TodoList() {
     <div>
       <div>
         <input data-testid="input-add" value={text} onChange={onChange} />
-        <button data-testid="button-add" onClick={onClick}>Добавить</button>
+        <button data-testid="button-add" onClick={onClick} type="button">Добавить</button>
       </div>
       <div data-testid="list" className="list">
         {lodash.map(items, (text, i) => <TodoItem key={i} index={i} />)}
