@@ -15,6 +15,6 @@ jobs:
       - uses: actions/checkout@v3
       - run: npm install
       - run: npm run build
-      - run: git config --global user.email "po_6706@mail.ru"
-      - run: git config --global user.name "Flasck"
+      - run: git config --global user.email po_6706@mail.ru
+      - run: git config --global user.name Flasck
       - run: npm run deploy
