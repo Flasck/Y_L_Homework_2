@@ -20,7 +20,6 @@ jobs:
 
   deploy:
     needs: check_validate
-    if: github.ref == 'refs/head/master' && github.event_name == 'push'
     runs-on: ubuntu-latest
     strategy:
       matrix:
