@@ -17,5 +17,5 @@ jobs:
         with:
           folder: dist
           ssh-key: ${{ secrets.DEPLOY }}
-        run: npm install
-        run: npm run deploy
+      - run: npm install
+      - run: npm run deploy
