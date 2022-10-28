@@ -6,7 +6,8 @@ export function Home() {
       <h1 data-testid="page-title">Home</h1>
       <p>This is the list.</p>
       <h1> TEST PR</h1>
-      <h3> TEST PR2</h3>
+      <h1> TEST PR2</h1>
+      <h1> TEST PR3</h1>
       <TodoList />
     </>
   );
