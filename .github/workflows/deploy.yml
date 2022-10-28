@@ -1,17 +1,13 @@
-name: Commit
+name: Deploy
 
-on: 
+on:
   push:
-    branches-ignore:
-      - 'main'
-      - 'gh-pages'
+    branches: [ "main" ]
   pull_request:
-    branches-ignore:
-      - 'main'
-      - 'gh-pages'
+    branches: [ "main" ]
 
 jobs:
-  check-validate:
+  deploy:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,14 +20,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Update NPM
+    - name: Update
       run: npm ci
     - name: Linters
-      run: | 
+      run: |
         npm run lint:css
         npm run lint:js
     - name: Build
       run: npm run build
     - name: Validate
       run: npm run validate
-  
+    - name: Deploy to GH Pages 🚀
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.DEPLOY }}
+        publish_dir: dist
+
